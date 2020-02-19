@@ -5,8 +5,6 @@ import Home from './components/Home';
 import About from './components/About';
 import ShipmentForm from './components/ShipmentForm';
 
-import './App.css';
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -53,8 +51,6 @@ class App extends Component {
               </button>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <div className="navbar-nav">
-                  {/* <Link to="/" className="nav-item nav-link">Home</Link> */}
-
                   {this.state.isAuthenticated && this.state.role === 'admin' ? (
                     <React.Fragment>
                       <Link to="/" className="nav-item nav-link"></Link>
@@ -83,25 +79,25 @@ class App extends Component {
                     </React.Fragment>
                   ) : (
                     <React.Fragment>
-                      <Link to="/containerTracking" className="nav-item nav-link">
+                      <Link
+                        to="/containerTracking"
+                        className="nav-item nav-link"
+                      >
                         Container Tracking
                       </Link>
-                      <Link to="/inquery" className="nav-item nav-link">
-                        Inquery
+                      <Link to="/ShipmentForm" className="nav-item nav-link">
+                        Shipment Creation
                       </Link>
                     </React.Fragment>
                   )}
                 </div>
-              </div>{' '}
-              {/*div collapse on minimize*/}
+              </div>
             </nav>
-          </div>{' '}
-          {/*row*/}
+          </div>
           <Switch>
             <Route path="/" component={Home} exact={true} />
             <Route path="/aboutus" component={About} exact={true} />
             <Route path="/ShipmentForm" component={ShipmentForm} exact={true} />
-
           </Switch>
         </div>
       </BrowserRouter>

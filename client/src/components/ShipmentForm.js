@@ -1,17 +1,35 @@
 import React from 'react';
 import axios from 'axios';
-// import momemnt from 'moment';
+
 class ShipmentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      dateFrom: '',
-      dateTo: '',
-      timeFrom: '',
-      timeTo: '',
-      location: '',
-      imgName: ''
+      bookingId: '',
+      origin: '',
+      destination: '',
+      cargo: '',
+      product: '',
+      containerDetail: '',
+      containerQuantity: '',
+      containerType: '',
+      containerTemperature: '',
+      termCondition: '',
+      internalReference: '',
+      customer: '',
+      cha: '',
+      ff: '',
+      type: '',
+      incoterm: '',
+      pickDrop: '',
+      originCountry: '',
+      destinationCountry: '',
+      stuffingLocation: '',
+      deStuffingLocation: '',
+      originServices: '',
+      destinationServices: '',
+      weight: '',
+      shippingLine: ''
     };
   }
 
@@ -22,38 +40,39 @@ class ShipmentForm extends React.Component {
     }));
   };
 
-  onImageUpload = event => {
-    this.setState({
-      imgName: event.target.files[0],
-      loaded: 0
-    });
-  };
-
   handleSubmit = e => {
     e.preventDefault();
 
-    const formData = new FormData();
-
-    formData.append('name', this.state.name);
-    formData.append('dateFrom', this.state.dateFrom);
-    formData.append('dateTo', this.state.dateTo);
-    // formData.append('timeFrom', this.state.timeFrom);
-    // formData.append('timeTo', this.state.timeTo);
-    formData.append(
-      'timeFrom',
-    //   new momemnt.utc(this.state.timeFrom, 'HH:mm:ss')
-    );
-    // formData.append('timeTo', new momemnt.utc(this.state.timeTo, 'HH:mm:ss'));
-    formData.append('location', this.state.location);
-    formData.append('imgName', this.state.imgName);
-
-    // for (var x = 0; x < this.state.images.length; x++) {
-    //   formData.append('images', this.state.images[x]);
-    // }
-    console.log(formData);
+    const formData = {
+      bookingId: this.state.bookingId,
+      origin: this.state.origin,
+      destination: this.state.destination,
+      cargo: this.state.cargo,
+      product: this.state.product,
+      containerDetail: this.state.containerDetail,
+      containerQuantity: this.state.containerQuantity,
+      containerType: this.state.containerType,
+      containerTemperature: this.state.containerTemperature,
+      termCondition: this.state.termCondition,
+      internalReference: this.state.internalReference,
+      customer: this.state.customer,
+      cha: this.state.cha,
+      ff: this.state.ff,
+      type: this.state.type,
+      incoterm: this.state.incoterm,
+      pickDrop: this.state.pickDrop,
+      originCountry: this.state.originCountry,
+      destinationCountry: this.state.destinationCountry,
+      stuffingLocation: this.state.stuffingLocation,
+      deStuffingLocation: this.state.deStuffingLocation,
+      originServices: this.state.originServices,
+      destinationServices: this.state.destinationServices,
+      weight: this.state.weight,
+      shippingLine: this.state.shippingLine
+    };
 
     axios
-      .post('/api/events/register', formData, {
+      .post('localhost:5000//shipments/register', formData, {
         headers: {
           'Access-Control-Allow-Origin': true,
           'Content-Type': 'multipart/form-data'
@@ -62,16 +81,6 @@ class ShipmentForm extends React.Component {
       .catch(err => {
         console.log(err);
       });
-    // .then(
-    //   this.setState({
-    //     name: '',
-    //     dateFrom: '',
-    //     dateTo: '',
-    //     timeFrom: '00:00:00',
-    //     timeTo: '00:00:00',
-    //     location: '',
-    //     imgName: ''
-    //   })
   };
 
   render() {
@@ -94,7 +103,7 @@ class ShipmentForm extends React.Component {
                 style={{ fontWeight: 'bold', textAlign: 'center' }}
                 className="ui segment"
               >
-                Event Form
+                Shipment Creation
               </div>
             </div>
           </div>
@@ -103,78 +112,68 @@ class ShipmentForm extends React.Component {
               <div className="ui segment">
                 <form className="ui form">
                   <div className="field">
-                    <label>Event Name</label>
+                    <label>Booking ID</label>
                     <input
                       placeholder="Event Name"
                       type="text"
-                      value={this.state.name}
+                      value={this.state.bookingId}
                       onChange={this.handleChange}
-                      name="name"
+                      name="bookingId"
                     />
                   </div>
 
                   <div className="field">
-                    <label>Date From</label>
+                    <label>Origin</label>
                     <input
-                      placeholder="Date From"
+                      placeholder="Origin"
                       type="date"
-                      value={this.state.dateFrom}
+                      value={this.state.origin}
                       onChange={this.handleChange}
-                      name="dateFrom"
+                      name="origin"
                     />
                   </div>
 
                   <div className="field">
-                    <label>Date To</label>
+                    <label>Destination</label>
                     <input
-                      placeholder="Date To"
+                      placeholder="Destination"
                       type="date"
-                      value={this.state.dateTo}
+                      value={this.state.destination}
                       onChange={this.handleChange}
-                      name="dateTo"
+                      name="destination"
                     />
                   </div>
 
                   <div className="field">
-                    <label>Time From</label>
+                    <label>Cargo</label>
                     <input
-                      placeholder="Timing"
+                      placeholder="Cargo"
                       type="time"
-                      value={this.state.timeFrom}
+                      value={this.state.cargo}
                       onChange={this.handleChange}
-                      name="timeFrom"
+                      name="cargo"
                     />
                   </div>
 
                   <div className="field">
-                    <label>Time To</label>
+                    <label>Product</label>
                     <input
-                      placeholder="Timing"
+                      placeholder="Product"
                       type="time"
-                      value={this.state.timeTo}
+                      value={this.state.product}
                       onChange={this.handleChange}
-                      name="timeTo"
+                      name="product"
                     />
                   </div>
 
                   <div className="field">
-                    <label>Location</label>
+                    <label>Container Quantity</label>
                     <input
-                      placeholder="Location"
+                      placeholder="Container Quantity"
                       type="text"
-                      value={this.state.location}
+                      value={this.state.containerQuantity}
                       onChange={this.handleChange}
-                      name="location"
-                    />
-                  </div>
-
-                  <div className="field">
-                    <label>Event Banner</label>
-                    <input
-                      placeholder="Image"
-                      type="file"
-                      onChange={this.onImageUpload}
-                      name="imgName"
+                      name="containerQuantity"
                     />
                   </div>
 
