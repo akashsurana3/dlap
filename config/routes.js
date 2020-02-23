@@ -4,7 +4,7 @@ const { usersRouter } = require('../controllers/UserController');
 const { shipmentsRouter } = require('../controllers/ShipmentController');
 
 router.use('/users', usersRouter);
-router.use('/shipment', shipmentsRouter);
+router.use('/shipments', shipmentsRouter);
 
 module.exports = {
   router

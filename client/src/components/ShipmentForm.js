@@ -72,12 +72,7 @@ class ShipmentForm extends React.Component {
     };
 
     axios
-      .post('localhost:5000//shipments/register', formData, {
-        headers: {
-          'Access-Control-Allow-Origin': true,
-          'Content-Type': 'multipart/form-data'
-        }
-      })
+      .post('http://localhost:5000/shipments/register', formData)
       .catch(err => {
         console.log(err);
       });
@@ -103,7 +98,7 @@ class ShipmentForm extends React.Component {
                 style={{ fontWeight: 'bold', textAlign: 'center' }}
                 className="ui segment"
               >
-                Shipment Creation
+               <h1> New Shipment </h1> 
               </div>
             </div>
           </div>
@@ -111,78 +106,310 @@ class ShipmentForm extends React.Component {
             <div className="column">
               <div className="ui segment">
                 <form className="ui form">
-                  <div className="field">
-                    <label>Booking ID</label>
+                  <div className="form-row">
+                    <label>Booking ID :</label>
+                    <br></br>
                     <input
-                      placeholder="Event Name"
+                      placeholder="Id"
                       type="text"
                       value={this.state.bookingId}
                       onChange={this.handleChange}
                       name="bookingId"
+                      className="form-control"
                     />
                   </div>
 
-                  <div className="field">
-                    <label>Origin</label>
+                  <div className="form-row">
+                    <label>Origin :</label>
                     <input
                       placeholder="Origin"
-                      type="date"
+                      type="text"
                       value={this.state.origin}
                       onChange={this.handleChange}
                       name="origin"
+                      className="form-control"
                     />
                   </div>
 
                   <div className="field">
-                    <label>Destination</label>
+                    <label>Destination :</label>
+                    <br></br>
                     <input
                       placeholder="Destination"
-                      type="date"
+                      type="text"
                       value={this.state.destination}
                       onChange={this.handleChange}
                       name="destination"
+                      className="form-control"
                     />
                   </div>
 
                   <div className="field">
-                    <label>Cargo</label>
+                    <label>Cargo :</label>
+                    <br></br>
                     <input
                       placeholder="Cargo"
-                      type="time"
+                      type="text"
                       value={this.state.cargo}
                       onChange={this.handleChange}
                       name="cargo"
+                      className="form-control"
                     />
                   </div>
 
                   <div className="field">
-                    <label>Product</label>
+                    <label>Product :</label>
+                    <br></br>
                     <input
                       placeholder="Product"
-                      type="time"
+                      type="text"
                       value={this.state.product}
                       onChange={this.handleChange}
                       name="product"
+                      className="form-control"
                     />
                   </div>
 
                   <div className="field">
-                    <label>Container Quantity</label>
+                    <label>Container Quantity :</label>
+                    <br></br>
                     <input
                       placeholder="Container Quantity"
                       type="text"
                       value={this.state.containerQuantity}
                       onChange={this.handleChange}
                       name="containerQuantity"
+                      className="form-control"
                     />
                   </div>
 
+                  <div className="field">
+                    <label>Container Type :</label>
+                    <br></br>
+                    <input
+                      placeholder="Type"
+                      type="text"
+                      value={this.state.containerType}
+                      onChange={this.handleChange}
+                      name="containerType"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Container Temperature :</label>
+                    <br></br>
+                    <input
+                      placeholder="Temperature"
+                      type="text"
+                      value={this.state.containerTemperature}
+                      onChange={this.handleChange}
+                      name="containerTemperature"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Terms and Condition :</label>
+                    <br></br>
+                    <input
+                      placeholder="Provide some Terms and Condition"
+                      type="text"
+                      value={this.state.termCondition}
+                      onChange={this.handleChange}
+                      name="termCondition"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Internal Reference No. :</label>
+                    <br></br>
+                    <input
+                      placeholder="Reference No."
+                      type="text"
+                      value={this.state.internalReference}
+                      onChange={this.handleChange}
+                      name="internalReference"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Customer :</label>
+                    <input
+                      placeholder="customer"
+                      type="text"
+                      value={this.state.customer}
+                      onChange={this.handleChange}
+                      name="customer"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>CHA :</label>
+                    <input
+                      placeholder="Custom House Agent"
+                      type="text"
+                      value={this.state.cha}
+                      onChange={this.handleChange}
+                      name="cha"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>ff :</label>
+                    <input
+                      placeholder="Freight Forwarder"
+                      type="text"
+                      value={this.state.ff}
+                      onChange={this.handleChange}
+                      name="ff"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Type :</label>
+                    <input
+                      placeholder="type"
+                      type="text"
+                      value={this.state.type}
+                      onChange={this.handleChange}
+                      name="type"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Incoterm :</label>
+                    <input
+                      placeholder="incoterm"
+                      type="text"
+                      value={this.state.incoterm}
+                      onChange={this.handleChange}
+                      name="incoterm"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Pick Drop :</label>
+                    <input
+                      placeholder="Pick Drop"
+                      type="text"
+                      value={this.state.pickDrop}
+                      onChange={this.handleChange}
+                      name="pickDrop"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Origin Country:</label>
+                    <input
+                      placeholder="Origin Country"
+                      type="text"
+                      value={this.state.originCountry}
+                      onChange={this.handleChange}
+                      name="originCountry"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Destination Country :</label>
+                    <input
+                      placeholder="Destination Country"
+                      type="text"
+                      value={this.state.destinationCountry}
+                      onChange={this.handleChange}
+                      name="destinationCountry"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Stuffing Location :</label>
+                    <input
+                      placeholder="Stuffing Location"
+                      type="text"
+                      value={this.state.stuffingLocation}
+                      onChange={this.handleChange}
+                      name="stuffingLocation"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>DeStuffing Location :</label>
+                    <input
+                      placeholder="DeStuffing Location"
+                      type="text"
+                      value={this.state.deStuffingLocation}
+                      onChange={this.handleChange}
+                      name="deStuffingLocation"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Origin Services :</label>
+                    <input
+                      placeholder="Origin Services"
+                      type="text"
+                      value={this.state.originServices}
+                      onChange={this.handleChange}
+                      name="originServices"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Destination Services :</label>
+                    <input
+                      placeholder="Destination Services"
+                      type="text"
+                      value={this.state.destinationServices}
+                      onChange={this.handleChange}
+                      name="destinationServices"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Weight :</label>
+                    <input
+                      placeholder="Weight"
+                      type="text"
+                      value={this.state.weight}
+                      onChange={this.handleChange}
+                      name="weight"
+                      className="form-control"
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label>Shipping Line :</label>
+                    <input
+                      placeholder="Shipping Line"
+                      type="text"
+                      value={this.state.shippingLine}
+                      onChange={this.handleChange}
+                      name="shippingLine"
+                      className="form-control"
+                    />
+                  </div>
+                  <br></br>
                   <button
                     type="submit"
-                    className="ui button"
+                    className="btn btn-primary"
+                    
                     onClick={e => this.handleSubmit(e)}
                   >
-                    Submit
+                    Create
                   </button>
                 </form>
               </div>
